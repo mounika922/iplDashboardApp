@@ -1,0 +1,16 @@
+/* Write your CSS here */
+.match-container {
+  background-color: #d91c1f;
+  border: 2px solid #f26d22;
+}
+.banner {
+  height: 200px;
+  width: 800px;
+}
+.matchcard-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.match-container.RCB {
+  background: linear-gradient(to bottom, #a4261d, #1e293b);
+}

@@ -1,0 +1,14 @@
+/* Write your CSS here */
+.logo {
+  width: 100px;
+  height: 100px;
+}
+.LatestMatch-container {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+}
+.sub {
+  display: flex;
+  flex-direction: column;
+}

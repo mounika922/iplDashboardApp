@@ -1,0 +1,16 @@
+/* Write your CSS here */
+.match-card {
+  background-color: #000000;
+  padding: 10px;
+  height: 400px;
+  width: 300px;
+  margin: 10px;
+  color: #ffffff;
+}
+.logo {
+  height: 100px;
+  width: 100px;
+}
+li {
+  list-style-type: none;
+}

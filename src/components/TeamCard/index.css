@@ -1,0 +1,19 @@
+/* Write your CSS here */
+.team-card {
+  border-color: #ffffff;
+  border-style: solid;
+  opacity: 0.5;
+  display: flex;
+  height: 100px;
+  width: 300px;
+  color: #ffffff;
+  border-radius: 5px;
+}
+.team-image {
+  height: 50px;
+  width: 50px;
+}
+li {
+  list-style-type: none;
+  margin: 5px;
+}
