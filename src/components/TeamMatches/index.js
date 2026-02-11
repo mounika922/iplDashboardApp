@@ -1,9 +1,11 @@
-// Write your code here
 import Loader from 'react-loader-spinner'
+import {PieChart, Pie, Tooltip, Legend, Cell} from 'recharts'
 import './index.css'
 import {Component} from 'react'
 import LatestMatch from '../LatestMatch'
 import MatchCard from '../MatchCard'
+
+const COLORS = ['#4CAF50', '#F44336', '#FFC107']
 
 class TeamMatches extends Component {
   state = {teamMatch: {}, latestMatch: {}, recentMatch: [], isLoading: true}
@@ -57,11 +59,27 @@ class TeamMatches extends Component {
     })
   }
 
+  onClickBack = () => {
+    const {history} = this.props
+    history.push('/')
+  }
+
   render() {
     const {teamMatch, latestMatch, recentMatch, isLoading} = this.state
     const {match} = this.props
     const {params} = match
     const {id} = params
+
+    const wins = recentMatch.filter(each => each.matchStatus === 'Won').length
+    const losses = recentMatch.filter(each => each.matchStatus === 'Lost')
+      .length
+    const draws = recentMatch.length - (wins + losses)
+
+    const chartData = [
+      {name: 'Won', value: wins},
+      {name: 'Lost', value: losses},
+      {name: 'Draw', value: draws},
+    ]
     return (
       <div>
         {isLoading ? (
@@ -87,7 +105,31 @@ class TeamMatches extends Component {
                   <MatchCard recentDetails={each} key={each.id} />
                 ))}
               </ul>
+              {recentMatch.length > 0 && (
+                <PieChart width={400} height={300}>
+                  <Pie
+                    data={chartData}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={100}
+                    dataKey="value"
+                    label
+                  >
+                    {chartData.map((entry, index) => (
+                      <Cell
+                        key={entry.name}
+                        fill={COLORS[index % COLORS.length]}
+                      />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                  <Legend />
+                </PieChart>
+              )}
             </div>
+            <button type="button" onClick={this.onClickBack}>
+              Back
+            </button>
           </div>
         )}
       </div>
