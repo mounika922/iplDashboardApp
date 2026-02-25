@@ -2,6 +2,9 @@
   "name": "ipl-dashboard-app",
   "private": true,
   "version": "1.0.0",
+  "engines": {
+  "node": "20.x"
+ },
   "overrides": {
     "ajv": "6.12.6",
     "ajv-keywords": "3.5.2"
